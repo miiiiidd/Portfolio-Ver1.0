@@ -1,0 +1,46 @@
+/*ｐタグのスタイルを設定する*/
+p {
+    color: red;
+    width: 500px;
+    border: 1px solid gray;
+}
+
+/*複数のタグ（li,olタグ）のスタイルを設定する*/
+li,
+ol {
+    color: green;
+    width: 200px;
+    line-height: 2;                 /*行の高さ*/
+    letter-spacing: 1px;            /*文字の間隔*/
+}
+
+/*ページ全体の基本フォントとフォントの大きさを設定する*/
+/*<html>はページ全体の親要素なので、その中のすべての要素は同じfont-sizeとfont-familyを継承する*/
+html {
+    font-size: 10px;
+    font-family: "Roboto Slab";     /*HTMLの<head>内で読み込んだフォントファミリー*/
+    background-color: burlywood;
+}
+
+/*h1タグのスタイルを設定する*/
+h1 {
+    font-size: 100px;
+    letter-spacing: 1px;            /*文字の間隔*/
+    text-shadow: 4px 4px 4px #aaa;/*文字の下にドロップシャドウを表示（水平オフセット(横)→垂直オフセット(縦)→ぼかす半径→基本色）*/
+}
+
+/*本文のスタイルを設定する*/
+body {
+    width: 600px;
+    margin: 0 auto;                 /*要素の外側の周りの空間（値1：上下、値2：左右）*/
+    background-color: cadetblue;
+    padding: 0 20px 20px 20px;      /*コンテンツの周囲のスペース（上→右→下→左）*/
+    border: 5px solid gray;
+}
+
+/*画像のスタイルを設定する*/
+img {
+    display: block;                 /*画像はインライン要素。マージンや余白を開ける値を適用出来ない。*/
+                                    /*画像にマージンを適用するには、display:block;を使用してブロックレベルの動作を指定する必要がある*/
+    margin: 0 auto;
+}
