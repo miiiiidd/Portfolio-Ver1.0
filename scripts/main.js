@@ -6,7 +6,7 @@
 
 //イベント処理
 let myHTML = document.querySelector('p');
-myHTML.addEventListener('click', function(){
+myHTML.addEventListener('click', function () {
     alert('ダメ！');
 });
 
@@ -18,10 +18,10 @@ const myImage = document.querySelector('img');
 myImage.onclick = () => {
     //画像のsrc属性の値を取得
     const mySrc = myImage.getAttribute('src');
-    if (mySrc === 'images/disney-01.jpg'){
-        myImage.setAttribute('src','images/disney-02.jpg');
-    }else{
-        myImage.setAttribute('src','images/disney-01.jpg');
+    if (mySrc === 'images/disney-01.jpg') {
+        myImage.setAttribute('src', 'images/disney-02.jpg');
+    } else {
+        myImage.setAttribute('src', 'images/disney-01.jpg');
     }
 }
 
@@ -30,25 +30,30 @@ myImage.onclick = () => {
 let myButton = document.querySelector('button');
 let myHeading = document.querySelector('h1');
 //パーソナライズされた挨拶を設定する関数
-function setUserName(){
+function setUserName() {
     //prompt()はalert()とは異なり、ユーザーにデータを入力するよう求め、ユーザーがOKを押した後に変数にそのデータを格納
     const myName = prompt('あなたの名前を入力してください。');
-    //ブラウザにデータを格納して後で受け取る(localStorageと呼ばれるAPIを呼び出す)
-    localStorage.setItem('name', myName);
-    //見出しのtextContentに文字列と新しく格納されたユーザーの名前を設定
-    myHeading.textContent = `Mozilla はかっこいいよ、${myName}`;
+    //nullチェック
+    if (!myName) {
+        setUserName();
+    } else {
+        //ブラウザにデータを格納して後で受け取る(localStorageと呼ばれるAPIを呼び出す)
+        localStorage.setItem('name', myName);
+        //見出しのtextContentに文字列と新しく格納されたユーザーの名前を設定
+        myHeading.textContent = `Welcom to Midori's Portfolio!${myName}`;
+    }
 }
 //初期コード（最初に読み込んだときにアプリを構造化する）
 //nameデータが存在するか
-if (!localStorage.getItem('name')){
+if (!localStorage.getItem('name')) {
     //存在しない場合setUserName()関数を実行
     setUserName();
-}else{
+} else {
     //存在する場合格納されている情報を表示
     const storedName = localStorage.getItem('name');
-    myHeading.textContent = `Mozilla はかっこいいよ、${storedName}`;
+    myHeading.textContent = `Welcom to Midori's Portfolio!${storedName}`;
 }
 //ユーザーがボタンを押下する毎に、新しい名前を設定する
-myButton.onclick = () =>{
+myButton.onclick = () => {
     setUserName();
 }
